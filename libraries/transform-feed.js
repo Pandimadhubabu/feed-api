@@ -66,10 +66,7 @@ module.exports = (feed, limit = 15) => {
                   id: item.id || item.guid || item.link,
                   image: image,
                   date_published: result.date || formatDate(item.pubDate),
-                  author: {
-                    name: item.creator || item.author || result.author || result.publisher || undefined,
-                    url: item.link ? getBase(item.link) : undefined
-                  }
+                  
                 }
               } else {
                 return false
