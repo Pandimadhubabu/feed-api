@@ -35,7 +35,7 @@ const metascraper = require('metascraper')([
 /*
   crawls each url for better metadata if available
 */
-module.exports = (feed, limit = 15) => {
+module.exports = (feed, limit = 10) => {
   try {
     return Promise.all(
       feed.items.slice(0, limit).map(async (item) => {
@@ -60,20 +60,16 @@ module.exports = (feed, limit = 15) => {
                 const contentText = ogDescription || item.description
 
                 return {
+                  id: item.id || item.guid || item.link,
+                  url: item.link,
                   title: item.title,
-                  link: item.link,
-                  description: stripHTML(contentText),
+                  content_text: stripHTML(contentText),
                   image: image,
-                  video: image,
-                  audio: image,
-                  author: image,
-                  contentType:'null',
-                  content: 'null',
-                  contentBase: 'null',
-                  category: 'null',
-                  date: result.date || formatDate(item.pubDate),
-                  
-                  
+                  date_published: result.date || formatDate(item.pubDate),
+                  author: {
+                    name: item.creator || item.author || result.author || result.publisher || undefined,
+                    url: item.link ? getBase(item.link) : undefined
+                  }
                 }
               } else {
                 return false
