@@ -22,7 +22,7 @@ module.exports = async (url, options = { limit: 10 }) => {
         site: feed.feed.link,	
         title: feed.feed.title,
         description: feed.feed.description,
-        
+       items: (await transformFeed(feed, options.limit)).filter(Boolean)  
       }
     } else {
       console.error('No feed detected: ', feed)
