@@ -60,10 +60,10 @@ module.exports = (feed, limit = 15) => {
                 const contentText = ogDescription || item.description
 
                 return {
-                  id: item.id || item.guid || item.link,
-                  url: item.link,
                   title: item.title,
+                  link: item.link,
                   description: stripHTML(contentText),
+                  id: item.id || item.guid || item.link,
                   image: image,
                   date_published: result.date || formatDate(item.pubDate),
                   author: {
