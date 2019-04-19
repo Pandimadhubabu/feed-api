@@ -17,7 +17,7 @@ module.exports = async (url, options = { limit: 10 }) => {
     if (feed && feed.feed) {
       return {
         type: 'rss',
-        feed_url: feed.feed.feedUrl || url,
+        url: feed.feed.feedUrl || url,
         title: feed.feed.title,
         description: feed.feed.description,
         author: {
