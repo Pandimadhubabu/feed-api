@@ -18,7 +18,7 @@ module.exports = async (url, options = { limit: 10 }) => {
       return {
         type: 'rss',
         url: feed.feed.feedUrl || url,
-        date:  result.date || formatDate(item.pubDate),
+        date:  result.date,
         site: feed.feed.link,
         title: feed.feed.title,
         description: feed.feed.description,
