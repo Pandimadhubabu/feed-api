@@ -65,16 +65,13 @@ module.exports = (feed, limit = 15) => {
                   description: stripHTML(contentText),
                   image: image,
                   video: image,
-                  audio: image,
-                  author: image,
+                  audio: null,
+                  author: null,
                   contentType:'null',
                   content: 'null',
                   contentBase: 'null',
                   category: 'null',
-                   date: result.date || formatDate(item.pubDate),
-                  id: item.id || item.guid || item.link,
-                  date_published: result.date || formatDate(item.pubDate),
-                  
+                  date: result.date || formatDate(item.pubDate),
                 }
               } else {
                 return false
