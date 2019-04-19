@@ -35,7 +35,7 @@ const metascraper = require('metascraper')([
 /*
   crawls each url for better metadata if available
 */
-module.exports = (feed, limit = 10) => {
+module.exports = (feed, limit = 15) => {
   try {
     return Promise.all(
       feed.items.slice(0, limit).map(async (item) => {
