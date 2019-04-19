@@ -16,9 +16,9 @@ module.exports = async (url, options = { limit: 10 }) => {
 
     if (feed && feed.feed) {
       return {
-        version: 'https://jsonfeed.org/version/1',
-        title: feed.feed.title,
+        type: 'rss',
         feed_url: feed.feed.feedUrl || url,
+        title: feed.feed.title,
         description: feed.feed.description,
         author: {
           name: feed.feed.author || feed.feed.creator || undefined,
