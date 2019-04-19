@@ -18,6 +18,8 @@ module.exports = async (url, options = { limit: 10 }) => {
       return {
         type: 'rss',
         url: feed.feed.feedUrl || url,
+        date: '0',
+        site: feed.feed.link,
         title: feed.feed.title,
         description: feed.feed.description,
         author: {
