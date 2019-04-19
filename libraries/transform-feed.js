@@ -72,7 +72,7 @@ module.exports = (feed, limit = 15) => {
                   contentBase: null,
                   category: null,
                   date: result.date || formatDate(item.pubDate),
-                  should_update_token: 757,
+                  should_update_token: null,
                 }
               } else {
                 return false
