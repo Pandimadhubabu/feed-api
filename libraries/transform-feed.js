@@ -73,6 +73,7 @@ module.exports = (feed, limit = 15) => {
                   category: null,
                   date: result.date || formatDate(item.pubDate),
                
+                  
                 }
               } else {
                 return false
