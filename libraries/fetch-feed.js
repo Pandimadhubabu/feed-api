@@ -16,15 +16,13 @@ module.exports = async (url, options = { limit: 10 }) => {
 
     if (feed && feed.feed) {
       return {
-        version: 'https://jsonfeed.org/version/1',
+        type: 'rss',
+        url: feed.feed.feedUrl || url,	
+        date:  0,	
+        site: feed.feed.link,	
         title: feed.feed.title,
-        feed_url: feed.feed.feedUrl || url,
         description: feed.feed.description,
-        author: {
-          name: feed.feed.author || feed.feed.creator || undefined,
-          url: feed.feed.link || feed.feed.feedUrl || feed.feed.url || url
-        },
-        items: (await transformFeed(feed, options.limit)).filter(Boolean)
+        
       }
     } else {
       console.error('No feed detected: ', feed)
