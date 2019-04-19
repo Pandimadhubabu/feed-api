@@ -64,15 +64,15 @@ module.exports = (feed, limit = 15) => {
                   link: item.link,
                   description: stripHTML(contentText),
                   image: image,
-                  video: null,
-                  audio: null,
-                  author: null,
-                  contentType:null,
-                  content: null,
-                  contentBase: null,
-                  category: null,
+                  video: image,
+                  audio: image,
+                  author: image,
+                  contentType:'null',
+                  content: 'null',
+                  contentBase: 'null',
+                  category: 'null',
                   date: result.date || formatDate(item.pubDate),
-               
+                  
                   
                 }
               } else {
