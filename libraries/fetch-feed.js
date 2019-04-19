@@ -18,14 +18,11 @@ module.exports = async (url, options = { limit: 10 }) => {
       return {
         type: 'rss',
         url: feed.feed.feedUrl || url,
-        date:  "0",
+        date:  0,
         site: feed.feed.link,
         title: feed.feed.title,
         description: feed.feed.description,
-        author: {
-          name: feed.feed.author || feed.feed.creator || undefined,
-          url: feed.feed.link || feed.feed.feedUrl || feed.feed.url || url
-        },
+       
         items: (await transformFeed(feed, options.limit)).filter(Boolean)
       }
     } else {
