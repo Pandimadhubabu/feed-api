@@ -61,12 +61,12 @@ module.exports = (feed, limit = 10) => {
 
                 return {
                   title: item.title,
-                   link: item.link,
+                  link: item.link,
                   description: stripHTML(contentText),
                   image: image,
-                  video: image,
-                  audio: image,
-                  author: image,
+                  video: null,
+                  audio: null,
+                  author: null,
                   contentType:'null',
                   content: 'null',
                   contentBase: 'null',
