@@ -65,14 +65,8 @@ module.exports = (feed, limit = 10) => {
                   description: stripHTML(contentText),
                   id: item.id || item.guid || item.link,
                   image: image,
-                  video: video,
-		  audio: audio,
 		  author: 757Live,
-                  contentType: 'null',
-		  content: stripHTML(contentText),
-		  contentBase: stripHTML(contentText),
-		  category:'null',
-                  date: result.date || formatDate(item.pubDate),
+	          date: result.date || formatDate(item.pubDate),
                   
                 }
               } else {
