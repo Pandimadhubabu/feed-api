@@ -62,17 +62,13 @@ module.exports = (feed, limit = 10) => {
                 return {
                   title: item.title,
                   link: item.link,
+                  id: item.id || item.guid || item.link,
                   description: stripHTML(contentText),
                   image: image,
-                  video: null,
-                  audio: null,
-                  author: null,
-                  contentType:'null',
-                  content: 'null',
-                  contentBase: 'null',
-                  category: 'null',
-                  date: result.date || formatDate(item.pubDate),
-                  
+                  date_published: result.date || formatDate(item.pubDate),
+                  author: {
+                    name: item.creator || item.author || result.author || result.publisher || undefined,
+                    url: item.link ? getBase(item.link) : undefined
                   }
                 }
               } else {
