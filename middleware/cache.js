@@ -12,7 +12,7 @@ module.exports = (duration) => (req, res, next) => {
   } else {
     res.sendResponse = res.send
     res.send = (body) => {
-      mcache.put(key, body, duration * 1)
+      mcache.put(key, body, duration * 10)
       res.sendResponse(body)
     }
     next()
