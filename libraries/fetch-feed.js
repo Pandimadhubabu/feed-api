@@ -5,9 +5,10 @@ const parseRSS = (url, options) => rssToJSON(url, options)
 /*
   given a url, returns a feed
 */
-module.exports = async (url, options = { limit: 2 }) => {
+module.exports = async (url, options = { limit: 10 }) => {
   try {
     const feed = await parseRSS(url, {
+      maxRedirects: 3,
       api_key: process.env.RSS_TO_JSON_API_KEY,
       order_by: 'pubDate',
       order_dir: 'desc',
