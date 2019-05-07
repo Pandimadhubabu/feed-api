@@ -63,9 +63,11 @@ module.exports = (feed, limit = 10) => {
                   title: item.title,
                   link: item.link,
                   description: stripHTML(contentText),
-                  url: item.id || item.guid || item.link,
-                  image: image,
-	          date: result.date || formatDate(item.pubDate),
+                  url: item.id || item.link,
+	          author:iteam.author
+	          guid:item.guid
+                  thumbnail: image,
+	          pubDate: result.date || formatDate(item.pubDate),
                   
                 }
               } else {
