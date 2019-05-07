@@ -18,7 +18,6 @@ module.exports = async (url, options = { maxRedirects: 3}) => {
       return {
         status: 'ok',
         url: feed.feed.feedUrl || url,	
-        date:  0,	
         site: feed.feed.link,	
         title: feed.feed.title,
         description: feed.feed.description,
