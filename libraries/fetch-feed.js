@@ -16,7 +16,7 @@ module.exports = async (url, options = { maxRedirects: 3}) => {
 
     if (feed && feed.feed) {
       return {
-        type: 'rss',
+        status: 'ok',
         url: feed.feed.feedUrl || url,	
         date:  0,	
         site: feed.feed.link,	
