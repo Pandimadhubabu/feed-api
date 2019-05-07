@@ -13,7 +13,7 @@ app.use((req, res, next) => {
   next()
 })
 
-app.get('/', cache(process.env.CACHE_MAX_AGE || 1800), async (req, res) => {
+app.get('/', cache(process.env.CACHE_MAX_AGE || 180), async (req, res) => {
   res.setHeader('Access-Control-Allow-Origin', '*')
   res.setHeader('Content-Type', 'application/json')
 
