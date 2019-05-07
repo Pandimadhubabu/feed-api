@@ -17,10 +17,11 @@ module.exports = async (url, options = { maxRedirects: 3}) => {
     if (feed && feed.feed) {
       return {
         status: 'ok',
+        feed:{
         url: feed.feed.feedUrl || url,	
         site: feed.feed.link,	
         title: feed.feed.title,
-        description: feed.feed.description,
+        description: feed.feed.description,}
        items: (await transformFeed(feed, options.limit)).filter(Boolean)  
       }
     } else {
